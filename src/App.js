@@ -58,7 +58,7 @@ class App extends React.Component {
 
     render() {
       return (
-        <div>
+        <div className = "wrapper">
           <TodoList
             handleToggleComplete = {this.toggleTodoComplete}
             todos = {this.state.todos}
