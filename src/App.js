@@ -59,16 +59,16 @@ class App extends React.Component {
     render() {
       return (
         <div className = "wrapper">
-          <TodoList
-            handleToggleComplete = {this.toggleTodoComplete}
-            todos = {this.state.todos}
-            />
-            <TodoForm
+          <TodoForm
               value = {this.state.todo}
               handleTodoChange = {this.changeTodo}
               handleAddTodo = {this.addTodo}
               handleClearTodos = {this.clearCompletedTodos}
               />
+              <TodoList
+            handleToggleComplete = {this.toggleTodoComplete}
+            todos = {this.state.todos}
+            />
         </div>
       );
     }

@@ -10,3 +10,37 @@ html {
 
 }
 
+.inputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.input {
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    width: 49%;
+    padding: 8px;
+}
+
+.listContainer {
+    width: 300px;
+    margin: auto;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    background-color: white;
+    font-size: 1.5rem;
+    text-decoration-color: red;
+}
