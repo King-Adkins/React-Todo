@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
-import Todo from './components/TodoComponents/Todo.css';
+
 
 
 
@@ -21,7 +21,6 @@ class App extends React.Component {
           id: 1528817084358,
           completed: false
         },
-      
       ],
       todo: ''
     };
@@ -44,31 +43,38 @@ class App extends React.Component {
     [event.target.name]: event.target.value });
 
     toggleTodoComplete = id => {
-      let todos = this.state.todos.slice();
-      todos = todos.map(todo => {
-        if (todo.id === id) {
-          todo.completed = !todo.completed;
-          return todo;
-        } else {
-          return todo;
-        }
-      });
-      this.setState({ todos });
+      this.setState({
+        todos: this.state.todos.map(todo => {
+          if(todo.id === id) {
+            return {...todo, completed: !todo.completed}
+        }else {
+          return todo
+        }})
+      })
+    };
+
+    clearCompletedTodos = event => {
+      event.preventDefault();
+      this.setState({
+        todos: this.state.todos.filter(todo => todo.completed === false)
+      })
+      // let todos = this.state.todos.filter(todo => !todo.completed);
+      // this.state({ todos });
     };
 
     render() {
-      return (
+     return (
         <div className = "wrapper">
           <TodoForm
-              value = {this.state.todo}
-              handleTodoChange = {this.changeTodo}
-              handleAddTodo = {this.addTodo}
-              handleClearTodos = {this.clearCompletedTodos}
-              />
-              <TodoList
+            value = {this.state.todo}
+            handleTodoChange = {this.changeTodo}
+            handleAddTodo = {this.addTodo}
+            handleClearTodos = {this.clearCompletedTodos}
+          />
+          <TodoList
             handleToggleComplete = {this.toggleTodoComplete}
             todos = {this.state.todos}
-            />
+          />
         </div>
       );
     }

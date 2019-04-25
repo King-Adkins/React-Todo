@@ -1,8 +1,10 @@
 import React from 'react';
+import './Todo.css';
 
 const Todo = props => {
+    console.log(props);
     return (
-        <div className = "list">
+        <div className = {props.todo.completed ? "complete" : 'list'}
             style = {props.todo.completed ? { textDecoration: 'line-through' } : null}
             onClick = {() => props.handleToggleComplete(props.todo.id)}
             >
